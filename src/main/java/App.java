@@ -1,13 +1,19 @@
-import static spark.Spark.*;
 import com.google.gson.Gson;
+import dao.Sql20DepartmentDao;
+import dao.Sql20NewsDao;
+import dao.Sql20UserDao;
 import exceptions.ApiException;
-import models.*;
-import dao.*;
-import org.sql2o.Sql2o;
+import models.Department;
+import models.News;
+import models.User;
 import org.sql2o.Connection;
+import org.sql2o.Sql2o;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static spark.Spark.*;
 
 
 public class App {
