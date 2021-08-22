@@ -4,7 +4,7 @@
 Mutsotso Fredrick Angose.
 
 ### Description
-This is an app that tracks the different types of wild animals both endangered and non-endangered present in a specific forest.The data is collected by game rangers and stored in the forest service department.
+
 
 ## Prerequisites & setup
 ### Prerequisites
@@ -22,17 +22,10 @@ This is an app that tracks the different types of wild animals both endangered a
 * 
         psql
         
-        CREATE DATABASE wildlife_tracker;
+        CREATE DATABASE myorg;
         
-        \c wildlife_tracker;
+        \c myorg;
         
-        CREATE TABLE animals 
-        (id serial PRIMARY KEY, name varchar, age varchar,health varchar, type varchar);
-        
-        CREATE TABLE sightings
-        (id serial PRIMARY KEY, animalId int, location varchar, rangerName varchar, sightingDate timestamp);
-        
-        CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
         
 * Clone this repository unto your local machine in a directory of choice.
 * Open the cloned directory using Intellij IDEA
