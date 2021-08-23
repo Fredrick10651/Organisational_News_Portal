@@ -5,17 +5,28 @@ import java.util.List;
 public interface DepartmentDao {
 
     //create
-    static void add(Department department);
+    static void add(Department department) {
 
-    abstract List<Department> getAll();
+    }
 
-    void addDepartmentToUser(Department department, User user);
+//    abstract List<Department> getAll();
 
     void add(Department department);
 
+    void addDepartmentToUser(Department department, User user);
+
+//    void add(Department department);
+
     //read
-    static List<Department> getAll();
-    static Department findById(int id);
+    static List<Department> getAll() {
+        return null;
+    }
+
+    static Department findById(int id) {
+        return null;
+    }
+
+//    Department findById(int id);
 
     Department findById(int id);
 
