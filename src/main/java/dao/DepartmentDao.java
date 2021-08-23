@@ -11,6 +11,10 @@ public interface DepartmentDao {
 
 //    abstract List<Department> getAll();
 
+//    void add(Department department);
+
+//    void add(Department department);
+
     void add(Department department);
 
     void addDepartmentToUser(Department department, User user);
@@ -21,14 +25,14 @@ public interface DepartmentDao {
     static List<Department> getAll() {
         return null;
     }
-
-    static Department findById(int id) {
-        return null;
-    }
+//
+//    static Department findById(int id) {
+//        return null;
+//    }
 
 //    Department findById(int id);
 
-    Department findById(int id);
+    static Department findById(int id);
 
     List<User> getAllUsersByDepartment(int departmentId);
 
