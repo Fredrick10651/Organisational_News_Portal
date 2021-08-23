@@ -7,10 +7,10 @@ public class User {
     private String userName;
     private String userCompanyPosition;
     private String userCompanyRole;
-    private  int departmentId;
+    private int departmentId;
     private int id;
 
-    public User(String userName, String userCompanyPosition, String userCompanyRole, int departmentId){
+    public User(String userName, String userCompanyPosition, String userCompanyRole, int departmentId) {
         this.userName = userName;
         this.userCompanyPosition = userCompanyPosition;
         this.userCompanyRole = userCompanyRole;
@@ -55,7 +55,7 @@ public class User {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -75,6 +75,4 @@ public class User {
     public int hashCode() {
         return Objects.hash(getUserName(), getUserCompanyPosition(), getUserCompanyRole(), getDepartmentId(), getId());
     }
-
-
 }

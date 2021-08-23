@@ -1,19 +1,14 @@
-import com.google.gson.Gson;
-import dao.Sql20DepartmentDao;
-import dao.Sql20NewsDao;
-import dao.Sql20UserDao;
-import exceptions.ApiException;
-import models.Department;
-import models.News;
-import models.User;
-import org.sql2o.Connection;
-import org.sql2o.Sql2o;
 
+import static spark.Spark.*;
+import com.google.gson.Gson;
+import exceptions.ApiException;
+import models.*;
+import dao.*;
+import org.sql2o.Sql2o;
+import org.sql2o.Connection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static spark.Spark.*;
 
 
 public class App {
@@ -29,9 +24,9 @@ public class App {
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
-        Sql20DepartmentDao departmentsDao;
-        Sql20NewsDao newsDao;
-        Sql20UserDao usersDao;
+        Sql2oDepartmentDao departmentsDao;
+        Sql2oNewsDao newsDao;
+        Sql2oUserDao usersDao;
 
         Connection conn;
         Gson gson = new Gson();
@@ -47,9 +42,9 @@ public class App {
         String connectionString = "jdbc:postgresql://ec2-3-218-112-22.compute-1.amazonaws.com:5432/d3lp89ash90jh";
         Sql2o sql2o = new Sql2o(connectionString, "ivmpkcooiunyxg", "bcc572d51ad47ac0fcefe5e5d9623027bb62b0f46d209d36271754a528bfb571");
 
-        departmentsDao = new Sql20DepartmentDao(sql2o);
-        newsDao = new Sql20NewsDao(sql2o);
-        usersDao = new Sql20UserDao(sql2o);
+        departmentsDao = new Sql2oDepartmentDao(sql2o);
+        newsDao = new Sql2oNewsDao(sql2o);
+        usersDao = new Sql2oUserDao(sql2o);
 
         conn = sql2o.open();
 
