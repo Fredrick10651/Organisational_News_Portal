@@ -1,5 +1,7 @@
 package dao;
-import models.*;
+
+import models.User;
+
 import java.util.List;
 
 public interface UserDao {
@@ -22,23 +24,16 @@ public interface UserDao {
 //
 //    List<User> getAllUsers();
 
-    static void add(User user);
+    static void add() {
+        add();
 
-    static List<User> getAllUsers();
-
-    static User findUserById(int id) {
-        return null;
     }
 
-//    User findUserById(int id);
+    void add(User user);
+
+    List<User> getAllUsers();
 
     User findUserById(int id);
-
-    static List<User> getAllUsersByDepartment(int departmentId) {
-        return null;
-    }
-
-//    List<User> getAllUsersByDepartment(int departmentId);
 
     List<User> getAllUsersByDepartment(int departmentId);
 

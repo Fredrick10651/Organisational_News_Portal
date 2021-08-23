@@ -44,13 +44,13 @@ public class Sql2oDepartmentDaoTest {
 
     //helper
     public Department setUpDepartment (){
-        Department department =  new Department("Servicing", "Repairs", 205);
+        Department department =  new Department("Developer", "Programming", 205);
         departmentsDao.add(department);
         return department;
     }
     //helper
     public Department setUpAltDepartment(){
-        Department altDepartment = new Department("Shipping", "Sailing", 329);
+        Department altDepartment = new Department("Finance", "Transportation", 329);
         departmentsDao.add(altDepartment);
         return altDepartment;
     }
@@ -69,20 +69,20 @@ public class Sql2oDepartmentDaoTest {
 
     @Test
     public void savesOneInstanceCorrectlyAndGetsRightId_true(){
-        Department testDepartment = new Department("Servicing", "Repairs", 208);
+        Department testDepartment = new Department("Servicing", "Repairs", 210);
         assertEquals(0, testDepartment.getId());
     }
 
     @Test
     public void getsTotalSizeCorrectly_true(){
-        Department testDepartment = new Department("Servicing", "Repairs", 208);
+        Department testDepartment = new Department("Servicing", "Repairs", 210);
         departmentsDao.add(testDepartment);
-        assertEquals(1, departmentsDao.getAll().size());
+        assertEquals(1, DepartmentDao.getAll().size());
     }
 
     @Test
     public void returnsZeroIfNoInstanceOfDepartmentExists_0(){
-        assertEquals(0, departmentsDao.getAll().size());
+        assertEquals(0, DepartmentDao.getAll().size());
     }
 
     @Test
@@ -106,7 +106,7 @@ public class Sql2oDepartmentDaoTest {
     public void deleteDepartmentByIdDeletesCorrectDepartment(){
         Department testDepartment = setUpDepartment();
         departmentsDao.deleteById(testDepartment.getId());
-        assertEquals(0, departmentsDao.getAll().size());
+        assertEquals(0, DepartmentDao.getAll().size());
     }
 
     @Test
@@ -114,26 +114,10 @@ public class Sql2oDepartmentDaoTest {
         Department firstDepartment = setUpDepartment();
         Department secondDepartment = setUpAltDepartment();
         departmentsDao.clearAll();
-        assertEquals(0, departmentsDao.getAll().size());
+        assertEquals(0, DepartmentDao.getAll().size());
 
     }
 
-//    @Test
-//    public void addsBothUserIdAndDepartmentIdToDB_Correctly(){
-//        Department testDepartment = setUpDepartment();
-//
-//        departmentsDao.add(testDepartment);
-//        User testUser = setUpUser();
-//        User anotherUser = setUpAltUser();
-//
-//        departmentsDao.addDepartmentToUser(testDepartment, testUser);
-//        departmentsDao.addDepartmentToUser(testDepartment, anotherUser);
-//
-//        User[] listOfEmployees = {testUser, anotherUser};
-//
-//        assertEquals(Arrays.asList(listOfEmployees), departmentsDao.getAllUsersByDepartment(testDepartment.getId()));
-//
-//    }
 
     @Test
     public void deletingADepartmentAlsoUpdatesTheJointTable(){

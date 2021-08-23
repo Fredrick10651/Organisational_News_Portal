@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface DepartmentDao {
 
-    //create
-    static void add(Department department) {
-
-    }
+//    //create
+//    static void add(Department department) {
+//
+//    }
 
 //    abstract List<Department> getAll();
 
@@ -32,7 +32,9 @@ public interface DepartmentDao {
 
 //    Department findById(int id);
 
-    static Department findById(int id);
+//    static Department findById(int id);
+
+    Department findById(int id);
 
     List<User> getAllUsersByDepartment(int departmentId);
 
