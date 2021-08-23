@@ -5,13 +5,13 @@ import java.util.List;
 public interface NewsDao {
 
     //create
-    void add(News news);
+    static void add(News news);
     void addNewsToDepartment(News news, Department department);
 
     //read
-    List<News> getAll();
-    News findById(int id);
-    List<News> getAllNewsByDepartment(int departmentId);
+    static List<News> getAll();
+    static News findById(int id);
+    static List<News> getAllNewsByDepartment(int departmentId);
     //
     List<News> getNewsByDepartment(int departmentId);
     //

@@ -5,12 +5,12 @@ import java.util.List;
 public interface DepartmentDao {
 
     //create
-    void add(Department department);
+    static void add(Department department);
     void addDepartmentToUser(Department department, User user);
 
     //read
-    List<Department> getAll();
-    Department findById(int id);
+    static List<Department> getAll();
+    static Department findById(int id);
     List<User> getAllUsersByDepartment(int departmentId);
 
     //update
