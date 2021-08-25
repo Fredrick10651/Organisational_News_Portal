@@ -4,7 +4,7 @@
 Mutsotso Fredrick Angose.
 
 ### Description
-
+Its an organisational api where users are enable to create departments,add department news,remove department news and create other users.
 
 ## Prerequisites & setup
 ### Prerequisites
