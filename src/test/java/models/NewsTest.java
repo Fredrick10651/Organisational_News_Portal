@@ -46,7 +46,7 @@ public class NewsTest {
     public void setNewsContentCorrectNewsContent() throws Exception {
         News testNews = setNews();
         testNews.setNewsContent("Elections");
-        assertEquals("BBI Agenda", testNews.getNewsContent());
+        assertEquals("Elections", testNews.getNewsContent());
     }
 
 
@@ -54,7 +54,7 @@ public class NewsTest {
     public void setDepartmentIdCorrectDepartmentId()throws Exception{
         News testNews = setNews();
         testNews.setDepartmentId(2);
-        assertEquals(1, testNews.getDepartmentId());
+        assertEquals(2, testNews.getDepartmentId());
     }
 
 

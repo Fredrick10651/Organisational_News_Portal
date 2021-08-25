@@ -46,7 +46,7 @@ public class DepartmentTest {
     public void setDepartmentDescriptionCorrectDepartmentDescription() throws Exception {
         Department testDepartment = setDepartment();
         testDepartment.setDepartmentDescription("Early bird");
-        assertEquals("Make hay while the sun shines", testDepartment.getDepartmentDescription());
+        assertEquals("Early bird", testDepartment.getDepartmentDescription());
     }
 
 
@@ -54,7 +54,7 @@ public class DepartmentTest {
     public void setDepartmentIEmployeesNumberCorrectDepartmentIEmployeesNumber()throws Exception{
         Department testDepartment = setDepartment();
         testDepartment.setDepartmentEmployeesNumber(15);
-        assertEquals(10, testDepartment.getDepartmentEmployeesNumber());
+        assertEquals(15, testDepartment.getDepartmentEmployeesNumber());
     }
 
 

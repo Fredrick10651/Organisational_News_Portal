@@ -51,13 +51,13 @@ public class UserTest {
     public void setUserCompanyPositionCorrectUserCompanyPosition() throws Exception {
        User testUser = setUser();
        testUser.setUserCompanyPosition("Secretary");
-       assertEquals("Manager", testUser.getUserCompanyPosition());
+       assertEquals("Secretary", testUser.getUserCompanyPosition());
     }
 
     @Test
     public void setUserCompanyRoleCorrectUserCompanyRole() throws Exception{
         User testUser = setUser();
-        testUser.setUserCompanyPosition("Programmer");
+        testUser.setUserCompanyPosition("Developer");
         assertEquals("Developer", testUser.getUserCompanyRole());
     }
 
@@ -65,7 +65,7 @@ public class UserTest {
     public void setDepartmentIdCorrectDepartmentId()throws Exception{
         User testUser = setUser();
         testUser.setDepartmentId(2);
-        assertEquals(1, testUser.getDepartmentId());
+        assertEquals(2, testUser.getDepartmentId());
     }
 
 

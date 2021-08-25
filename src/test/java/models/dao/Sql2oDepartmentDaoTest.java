@@ -1,19 +1,25 @@
-package dao;
+package models.dao;
+import dao.Sql2oDepartmentDao;
+import dao.Sql2oNewsDao;
+import dao.Sql2oUserDao;
 import models.Department;
 import models.User;
-import org.junit.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class Sql2oDepartmentDaoTest {
 
     private static Connection conn;
-    private static Sql20DepartmentDao departmentsDao;
-    private static Sql20NewsDao newsDao;
-    private static Sql20UserDao usersDao;
+    private static Sql2oDepartmentDao departmentsDao;
+    private static Sql2oNewsDao newsDao;
+    private static Sql2oUserDao userDao;
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -21,9 +27,9 @@ public class Sql2oDepartmentDaoTest {
 //        Sql2o sql2o = new Sql2o(connectionString, "", "");
         String connectionString = "jdbc:postgresql://localhost:5432/myorg_test";
         Sql2o sql2o = new Sql2o(connectionString, "moringa", "moringa");
-        departmentsDao = new Sql20DepartmentDao(sql2o);
-        newsDao = new Sql20NewsDao(sql2o);
-        usersDao = new Sql20UserDao(sql2o);
+        departmentsDao = new Sql2oDepartmentDao(sql2o);
+        newsDao = new Sql2oNewsDao(sql2o);
+        userDao = new Sql2oUserDao(sql2o);
         conn = sql2o.open();
     }
 
@@ -32,7 +38,7 @@ public class Sql2oDepartmentDaoTest {
         System.out.println("clearing database");
         departmentsDao.clearAll();
         newsDao.clearAll();
-        usersDao.clearAll();
+        userDao.clearAll();
 //        conn.close();
     }
 
@@ -57,13 +63,13 @@ public class Sql2oDepartmentDaoTest {
     //helper
     public User setUpUser(){
         User user = new User("Michelle", "Secretary", "Writing", 2);
-        usersDao.add(user);
+        userDao.add(user);
         return user;
     }
     //helper
     public User setUpAltUser(){
         User altUser = new User("Gideon","Manager", "Oversight", 2);
-        usersDao.add(altUser);
+        userDao.add(altUser);
         return altUser;
     }
 
@@ -77,12 +83,12 @@ public class Sql2oDepartmentDaoTest {
     public void getsTotalSizeCorrectly_true(){
         Department testDepartment = new Department("Servicing", "Repairs", 210);
         departmentsDao.add(testDepartment);
-        assertEquals(1, DepartmentDao.getAll().size());
+        assertEquals(1, departmentsDao.getAll().size());
     }
 
     @Test
     public void returnsZeroIfNoInstanceOfDepartmentExists_0(){
-        assertEquals(0, DepartmentDao.getAll().size());
+        assertEquals(0, departmentsDao.getAll().size());
     }
 
     @Test
@@ -106,7 +112,7 @@ public class Sql2oDepartmentDaoTest {
     public void deleteDepartmentByIdDeletesCorrectDepartment(){
         Department testDepartment = setUpDepartment();
         departmentsDao.deleteById(testDepartment.getId());
-        assertEquals(0, DepartmentDao.getAll().size());
+        assertEquals(0, departmentsDao.getAll().size());
     }
 
     @Test
@@ -114,7 +120,7 @@ public class Sql2oDepartmentDaoTest {
         Department firstDepartment = setUpDepartment();
         Department secondDepartment = setUpAltDepartment();
         departmentsDao.clearAll();
-        assertEquals(0, DepartmentDao.getAll().size());
+        assertEquals(0, departmentsDao.getAll().size());
 
     }
 
@@ -127,7 +133,7 @@ public class Sql2oDepartmentDaoTest {
         departmentsDao.add(altTestDepartment);
 
         User testUser = setUpUser();
-        usersDao.add(testUser);
+        userDao.add(testUser);
 
         departmentsDao.addDepartmentToUser(testDepartment, testUser);
         departmentsDao.addDepartmentToUser(altTestDepartment, testUser);

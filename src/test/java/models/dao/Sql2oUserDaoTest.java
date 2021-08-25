@@ -1,4 +1,7 @@
-package dao;
+package models.dao;
+import dao.Sql2oDepartmentDao;
+import dao.Sql2oNewsDao;
+import dao.Sql2oUserDao;
 import models.User;
 import org.junit.*;
 import org.sql2o.Sql2o;
@@ -9,9 +12,9 @@ import static org.junit.Assert.*;
 public class Sql2oUserDaoTest {
 
     private static Connection conn;
-    private static Sql20DepartmentDao departmentDao;
-    private static Sql20NewsDao newsDao;
-    private static Sql20UserDao userDao;
+    private static Sql2oDepartmentDao departmentDao;
+    private static Sql2oNewsDao newsDao;
+    private static Sql2oUserDao userDao;
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -19,9 +22,9 @@ public class Sql2oUserDaoTest {
 //        Sql2o sql2o = new Sql2o(connectionString, "", "");
         String connectionString = "jdbc:postgresql://localhost:5432/myorg_test";
         Sql2o sql2o = new Sql2o(connectionString, "moringa", "moringa");
-        departmentDao = new Sql20DepartmentDao(sql2o);
-        newsDao = new Sql20NewsDao(sql2o);
-        userDao = new Sql20UserDao(sql2o);
+        departmentDao = new Sql2oDepartmentDao(sql2o);
+        newsDao = new Sql2oNewsDao(sql2o);
+        userDao = new Sql2oUserDao(sql2o);
         conn = sql2o.open();
     }
 
